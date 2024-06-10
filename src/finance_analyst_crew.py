@@ -42,6 +42,7 @@ task1 = Task(
 task2 = Task(
     description="""Based on the financial analyst's report, prepare a press release for the company. The release should
   highlight the identified market trends and investment opportunities, tailored for our stakeholders and the general public.""",
+
     expected_output='A detailed report analyzing the financial performance and suggesting investment strategies.',
 
     agent=communications_specialist
