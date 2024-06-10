@@ -1,4 +1,4 @@
-def get_text_from_pdf(path)
+def get_text_from_pdf(path):
     from pypdf import PdfReader 
     reader = PdfReader(path) 
     page = reader.pages[0] 
