@@ -11,10 +11,7 @@ load_dotenv()
 file_read_tool = FileReadTool(file_path='uploads/10-K_-_Marsh__Mclennan_Companies_INC_-_02-12-2024.pdf')
 dir_read_tool = DirectoryReadTool(directory='codespaces-flask/output')
 
-
-OPENAI_API_KEY  = os.getenv('GEMINI_API_KEY')
 SERPER_API_KEY = os.getenv('SERPER_API_KEY')
-OPENAI_MODEL_NAME = 'gpt-3.5-turbo'
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 # You can choose to use a local model through Ollama for example. See https://docs.crewai.com/how-to/LLM-Connections/ for more information.
 
