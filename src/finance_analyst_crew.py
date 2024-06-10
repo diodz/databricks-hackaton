@@ -34,13 +34,17 @@ communications_specialist = Agent(
 task1 = Task(
     description="""Review the latest financial news using the Yahoo Finance News Tool. Identify key market trends
   and potential investment opportunities relevant to our company's portfolio.""",
-    agent=financial_analyst
+    agent=financial_analyst,
+    expected_output='Provide a summary of the key market trends and investment opportunities.'
+
 )
 
 task2 = Task(
     description="""Based on the financial analyst's report, prepare a press release for the company. The release should
   highlight the identified market trends and investment opportunities, tailored for our stakeholders and the general public.""",
-    agent=communications_specialist
+    agent=communications_specialist,
+    expected_output='Prepare a press release of the trends and investment opportunities tailored for the stakeholders and the public.'
+
 )
 
 # Instantiate your crew with a sequential process
