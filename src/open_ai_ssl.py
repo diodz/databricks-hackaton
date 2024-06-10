@@ -1,5 +1,8 @@
 # Databricks notebook source
 !pip install openai
+!pip install langchain_openai
+!pip install langchain_community
+!pip install crewai
 %restart_python
 
 # COMMAND ----------
@@ -44,6 +47,130 @@ chat_completion = client.chat.completions.create(
 )
 
 print(chat_completion.choices[0].message.content)
+
+# COMMAND ----------
+
+from langchain_openai import ChatOpenAI
+llm = ChatOpenAI(
+    model="databricks-dbrx-instruct",
+    temperature=0,
+    max_tokens=None,
+    timeout=None,
+    max_retries=2,
+    api_key=DATABRICKS_TOKEN,
+    base_url="https://dbc-0b27798d-9689.cloud.databricks.com/serving-endpoints",
+    # organization="...",
+    # other params...
+)
+
+# COMMAND ----------
+
+output = llm.invoke("what is databricks")
+
+# COMMAND ----------
+
+output.content
+
+# COMMAND ----------
+
+llm.invoke('what is databricks')
+
+# COMMAND ----------
+
+from langchain_community.tools.yahoo_finance_news import YahooFinanceNewsTool
+# from dotenv import load_dotenv
+from crewai import Agent, Task, Crew
+
+from openai import OpenAI
+import os
+
+!openssl s_client -showcerts -servername dbc-0b27798d-9689.cloud.databricks.com -connect dbc-0b27798d-9689.cloud.databricks.com:443 > certout </dev/null
+!cat certout
+!cat certout |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > cert.pem
+!cat cert.pem
+!pwd
+
+os.environ['SSL_CERT_FILE' ] ='./cert.pem'
+
+
+# How to get your Databricks token: https://docs.databricks.com/en/dev-tools/auth/pat.html
+#DATABRICKS_TOKEN = os.environ.get('DATABRICKS_TOKEN')
+# Alternatively in a Databricks notebook you can use this:
+DATABRICKS_TOKEN = dbutils.notebook.entry_point.getDbutils().notebook().getContext().apiToken().get()
+
+# load_dotenv()
+
+from langchain_openai import ChatOpenAI
+llm = ChatOpenAI(
+    model="databricks-dbrx-instruct",
+    temperature=0,
+    max_tokens=None,
+    timeout=None,
+    max_retries=2,
+    api_key=DATABRICKS_TOKEN,
+    base_url="https://dbc-0b27798d-9689.cloud.databricks.com/serving-endpoints",
+    # organization="...",
+    # other params...
+)
+
+# Install the required library for Yahoo Finance News Tool
+# !pip install langchain_community
+
+yahoo_finance_news_tool = YahooFinanceNewsTool()
+
+# Define your agents with roles and goals
+financial_analyst = Agent(
+    role='Financial Analyst',
+    goal='Analyze current financial news to identify market trends and investment opportunities',
+    backstory="""You are an experienced financial analyst adept at interpreting market data and news
+  to forecast financial trends and advise on investment strategies.""",
+    verbose=True,
+    allow_delegation=False,
+    llm=llm,
+    tools=[yahoo_finance_news_tool]
+)
+
+communications_specialist = Agent(
+    role='Corporate Communications Specialist',
+    goal='Communicate financial insights and market trends to company stakeholders',
+    backstory="""As a communications specialist in a corporate setting, your expertise lies in
+  crafting clear and concise messages from complex financial data for stakeholders and the public.""",
+    verbose=True,
+    allow_delegation=True,
+    llm=llm,
+    # (optional) llm=another_llm
+)
+
+# Create tasks for your agents
+task1 = Task(
+    description="""Review the latest financial news using the Yahoo Finance News Tool. Identify key market trends
+  and potential investment opportunities relevant to our company's portfolio.""",
+    expected_output='A detailed report analyzing the financial performance and suggesting investment strategies.',
+
+    agent=financial_analyst
+)
+
+task2 = Task(
+    description="""Based on the financial analyst's report, prepare a press release for the company. The release should
+  highlight the identified market trends and investment opportunities, tailored for our stakeholders and the general public.""",
+
+    expected_output='A detailed report analyzing the financial performance and suggesting investment strategies.',
+
+    agent=communications_specialist
+)
+
+# Instantiate your crew with a sequential process
+crew = Crew(
+    agents=[financial_analyst, communications_specialist],
+    tasks=[task1, task2],
+    verbose=2
+)
+
+# Get your crew to work!
+result = crew.kickoff()
+
+print("######################")
+print(result)
 
 # COMMAND ----------
 

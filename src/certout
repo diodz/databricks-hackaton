@@ -1,3 +1,10 @@
+CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:C = US, ST = California, L = San Francisco, O = Databricks, OU = Engineering, CN = *.cloud.databricks.com
+   i:C = US, ST = California, L = San Francisco, O = Databricks, OU = Engineering, CN = *.cloud.databricks.com
+   a:PKEY: id-ecPublicKey, 256 (bit); sigalg: ecdsa-with-SHA256
+   v:NotBefore: Jun 10 20:11:13 2024 GMT; NotAfter: Jul 10 20:11:13 2024 GMT
 -----BEGIN CERTIFICATE-----
 MIIGzDCCBnOgAwIBAgIUH/OFVOBJwb4EqGuP6m1VSAK8VkEwCgYIKoZIzj0EAwIw
 gYYxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1T
@@ -37,3 +44,25 @@ Y29tghYqLmNsb3VkLmRhdGFicmlja3MuY29tMAoGCCqGSM49BAMCA0cAMEQCIEZ3
 yaswFzTVyBC/AOc2/mJDAktrPwNx/8IE7IeLfcv0AiB79Ta0WiUYCagQYQSgx1wb
 u9YPD9bAdDlLmIECJV93jQ==
 -----END CERTIFICATE-----
+---
+Server certificate
+subject=C = US, ST = California, L = San Francisco, O = Databricks, OU = Engineering, CN = *.cloud.databricks.com
+issuer=C = US, ST = California, L = San Francisco, O = Databricks, OU = Engineering, CN = *.cloud.databricks.com
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: ECDSA
+Server Temp Key: X25519, 253 bits
+---
+SSL handshake has read 2048 bytes and written 420 bytes
+Verification: OK
+---
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Server public key is 256 bit
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 0 (ok)
+---
