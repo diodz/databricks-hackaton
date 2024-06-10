@@ -1,16 +1,11 @@
+CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:C = US, ST = California, L = San Francisco, O = Databricks, OU = Engineering, CN = *.cloud.databricks.com
+   i:C = US, ST = California, L = San Francisco, O = Databricks, OU = Engineering, CN = *.cloud.databricks.com
+   a:PKEY: id-ecPublicKey, 256 (bit); sigalg: ecdsa-with-SHA256
+   v:NotBefore: Jun 10 20:06:11 2024 GMT; NotAfter: Jul 10 20:06:11 2024 GMT
 -----BEGIN CERTIFICATE-----
-<<<<<<< Updated upstream
-MIIGzTCCBnOgAwIBAgIUKtP8wlONVd3bS+DK2eatT4u0w5YwCgYIKoZIzj0EAwIw
-gYYxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1T
-YW4gRnJhbmNpc2NvMRMwEQYDVQQKDApEYXRhYnJpY2tzMRQwEgYDVQQLDAtFbmdp
-bmVlcmluZzEfMB0GA1UEAwwWKi5jbG91ZC5kYXRhYnJpY2tzLmNvbTAeFw0yNDA2
-MTAxODMzNDRaFw0yNDA3MTAxODMzNDRaMIGGMQswCQYDVQQGEwJVUzETMBEGA1UE
-CAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzETMBEGA1UECgwK
-RGF0YWJyaWNrczEUMBIGA1UECwwLRW5naW5lZXJpbmcxHzAdBgNVBAMMFiouY2xv
-dWQuZGF0YWJyaWNrcy5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASYhvEV
-ixVZVZpJZN7QpCyLJ+++Og93w3kvfcXo0CY/rGq1mo3PaZSLaw+dOIHKxmVbLba1
-Db+ReIpDS1NdJYHzo4IEuzCCBLcwggSzBgNVHREEggSqMIIEpoIWMC5jbG91ZC5k
-=======
 MIIGzTCCBnOgAwIBAgIUWOc0baw1FqOhcRvtbVg4xed/oHEwCgYIKoZIzj0EAwIw
 gYYxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1T
 YW4gRnJhbmNpc2NvMRMwEQYDVQQKDApEYXRhYnJpY2tzMRQwEgYDVQQLDAtFbmdp
@@ -21,7 +16,6 @@ RGF0YWJyaWNrczEUMBIGA1UECwwLRW5naW5lZXJpbmcxHzAdBgNVBAMMFiouY2xv
 dWQuZGF0YWJyaWNrcy5jb20wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQ+pxDN
 FYLBArYWuGvZTuuFKDXRSpIeAPVGiUYVp4WFDdBwNEmuQ1VW3CBNOb+9eSvug7gz
 tbq8uK5N9qlBY+9Qo4IEuzCCBLcwggSzBgNVHREEggSqMIIEpoIWMC5jbG91ZC5k
->>>>>>> Stashed changes
 YXRhYnJpY2tzLmNvbYIWMS5jbG91ZC5kYXRhYnJpY2tzLmNvbYIWMi5jbG91ZC5k
 YXRhYnJpY2tzLmNvbYIWMy5jbG91ZC5kYXRhYnJpY2tzLmNvbYIWNC5jbG91ZC5k
 YXRhYnJpY2tzLmNvbYIWNS5jbG91ZC5kYXRhYnJpY2tzLmNvbYIWNi5jbG91ZC5k
@@ -46,13 +40,29 @@ MTUuY2xvdWQuZGF0YWJyaWNrcy5jb22CGSouMTYuY2xvdWQuZGF0YWJyaWNrcy5j
 b22CGSouMTcuY2xvdWQuZGF0YWJyaWNrcy5jb22CGSouMTguY2xvdWQuZGF0YWJy
 aWNrcy5jb22CGSouMTkuY2xvdWQuZGF0YWJyaWNrcy5jb22CHiouaW5ncmVzcy5j
 bG91ZC5kYXRhYnJpY2tzLmNvbYIeKi5wbC1hdXRoLmNsb3VkLmRhdGFicmlja3Mu
-<<<<<<< Updated upstream
-Y29tghYqLmNsb3VkLmRhdGFicmlja3MuY29tMAoGCCqGSM49BAMCA0gAMEUCIQCo
-emzZmmz+m7Kcd8egDReVweAaiY2w2zntX9j2f2Wd7wIgY+NyjiIkue2OqUeGf6YF
-4DITIHtDq0zHGEJv/Sqdw3M=
-=======
 Y29tghYqLmNsb3VkLmRhdGFicmlja3MuY29tMAoGCCqGSM49BAMCA0gAMEUCIHTr
 rX9Pn7tnVrEZWerIHBRPj0MRwwW4/X8ALqz96uE2AiEAzZaSaZcqU64QmOm91S+7
 wT7e0bTJYQD5NtZisiguTBI=
->>>>>>> Stashed changes
 -----END CERTIFICATE-----
+---
+Server certificate
+subject=C = US, ST = California, L = San Francisco, O = Databricks, OU = Engineering, CN = *.cloud.databricks.com
+issuer=C = US, ST = California, L = San Francisco, O = Databricks, OU = Engineering, CN = *.cloud.databricks.com
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: ECDSA
+Server Temp Key: X25519, 253 bits
+---
+SSL handshake has read 2051 bytes and written 420 bytes
+Verification error: self-signed certificate
+---
+New, TLSv1.3, Cipher is TLS_AES_256_GCM_SHA384
+Server public key is 256 bit
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 18 (self-signed certificate)
+---
