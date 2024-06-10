@@ -8,8 +8,12 @@ import os
 load_dotenv()
 
 # Initialize the tool with a specific file path, so the agent can only read the content of the specified file
-file_read_tool = FileReadTool(file_path='uploads/10-K_-_Marsh__Mclennan_Companies_INC_-_02-12-2024.pdf')
-dir_read_tool = DirectoryReadTool(directory='codespaces-flask/output')
+file_read_tool = FileReadTool(file_path='../uploads/example_paper.pdf')
+dir_read_tool = DirectoryReadTool(directory='../uploads')
+
+pdf_path = '../uploads/example_paper.pdf'
+if not os.path.isfile(pdf_path):
+  raise FileNotFoundError(f"The file {pdf_path} does not exist")
 
 SERPER_API_KEY = os.getenv('SERPER_API_KEY')
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
@@ -20,7 +24,7 @@ search_tool = SerperDevTool()
 llm_gemini=ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=1,
                                   google_api_key=GEMINI_API_KEY)
 
-pdf_tool = PDFSearchTool(pdf='uploads/example.pdf', llm=llm_gemini)
+pdf_tool = PDFSearchTool(pdf='../uploads/example_paper.pdf', llm=llm_gemini)
 
 # Define your agents with roles and goals
 researcher = Agent(
